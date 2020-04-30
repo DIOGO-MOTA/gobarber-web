@@ -1,0 +1,8 @@
+# GOBARBER-WEB
+
+## TECNOLOGIA
+
+* REACT
+* TYPESCRIPT
+ 
+ ![](gobarber.JPG)
