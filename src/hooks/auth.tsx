@@ -6,14 +6,14 @@ interface AuthState {
   user: object;
 }
 
-interface signInCredentials {
+interface SignInCredentials {
   email: string;
   password: string;
 }
 
 interface AuthContextData {
   user: object;
-  signIn(credentials: signInCredentials): Promise<void>;
+  signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
 }
 
