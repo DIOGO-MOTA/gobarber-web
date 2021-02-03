@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FiClock, FiPower } from 'react-icons/fi';
 import {
@@ -9,6 +9,8 @@ import {
   Content,
   Schedule,
   NextAppointment,
+  Section,
+  Appointment,
   Calendar,
 } from './styles';
 
@@ -16,6 +18,8 @@ import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 
 const Dashboard: React.FC = () => {
+  const [selectedDate, setselectedDate] = useState(new Date());
+
   const { signOut, user } = useAuth();
 
   return (
@@ -65,7 +69,64 @@ const Dashboard: React.FC = () => {
               </span>
             </div>
           </NextAppointment>
+
+          <Section>
+            <strong>Manhã</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                  alt="diogo"
+                />
+
+                <strong>Diogo Mota</strong>
+              </div>
+            </Appointment>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                  alt="diogo"
+                />
+
+                <strong>Diogo Mota</strong>
+              </div>
+            </Appointment>
+          </Section>
+
+          <Section>
+            <strong>Tarde</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                  alt="diogo"
+                />
+
+                <strong>Diogo Mota</strong>
+              </div>
+            </Appointment>
+          </Section>
         </Schedule>
+
         <Calendar />
       </Content>
     </Container>
