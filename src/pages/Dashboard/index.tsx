@@ -6,6 +6,7 @@ import 'react-day-picker/lib/style.css';
 
 import { FiClock, FiPower } from 'react-icons/fi';
 import { parseISO } from 'date-fns/esm';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Header,
@@ -131,9 +132,9 @@ const Dashboard: React.FC = () => {
   }, [appointments]);
 
   const nextAppointment = useMemo(() => {
-    return appointments.find(appointment => {
-      isAfter(parseISO(appointment.date), new Date());
-    });
+    return appointments.find(appointment =>
+      isAfter(parseISO(appointment.date), new Date()),
+    );
   }, [appointments]);
 
   return (
@@ -143,14 +144,13 @@ const Dashboard: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Profile>
-            <img
-              src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
-              alt={user.name}
-            />
+            <img src={user.avatar_url} alt={user.name} />
 
             <div>
               <span>Bem-vindo,</span>
-              <strong>{user.name}</strong>
+              <Link to="/profile">
+                <strong>{user.name}</strong>
+              </Link>
             </div>
           </Profile>
           <button type="button" onClick={signOut}>
@@ -174,7 +174,7 @@ const Dashboard: React.FC = () => {
 
               <div>
                 <img
-                  src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                  src={nextAppointment.user.avatar_url}
                   alt={nextAppointment.user.name}
                 />
 
@@ -203,7 +203,7 @@ const Dashboard: React.FC = () => {
 
                 <div>
                   <img
-                    src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                    src={appointment.user.avatar_url}
                     alt={appointment.user.name}
                   />
 
@@ -229,7 +229,7 @@ const Dashboard: React.FC = () => {
 
                 <div>
                   <img
-                    src="https://xesque.rocketseat.dev/users/avatar/profile-31a0b5f7-47c7-47ca-8a87-637569a3b10a-1597091907966.jpg"
+                    src={appointment.user.avatar_url}
                     alt={appointment.user.name}
                   />
 
